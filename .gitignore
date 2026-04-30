@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+*.log
+.env
+.env.local
+
+# dist/ is committed intentionally — consumers install via
+# `npm install git+...#tag` and need pre-built JS+types without running tsc.
