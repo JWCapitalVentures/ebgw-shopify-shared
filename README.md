@@ -1,10 +1,16 @@
 # @ebgw/shopify-shared
 
 Single source of truth for **size_chart** metaobject types, runtime
-validation, and Kiwi Sizing extraction logic. Used by:
+validation, and Kiwi/EBGW extraction logic. Used by:
 
 - **size-chart-app** ([Size-chart-app](https://github.com/JWCapitalVentures/Size-chart-app)) — Shopify app (theme extension + admin UI)
 - **ebgw-hub** ([ebgw-hub](https://github.com/JWCapitalVentures/ebgw-hub)) — internal research/import dashboard
+
+> 🌐 **Onderdeel van het [EBGW app-ecosysteem][ecosystem]** — dit package is
+> het schema-contract tussen alle apps. Zie de ecosystem-doc voor de bredere
+> visie en wanneer een schema-bump nodig is.
+
+[ecosystem]: https://github.com/JWCapitalVentures/ebgw-hub/blob/main/ECOSYSTEM.md
 
 ## Why this package exists
 
