@@ -13,5 +13,7 @@ export { UnitSchema, TableSectionSchema, TextSectionSchema, SizeChartSectionSche
 export type { KiwiResponse, KiwiSizing } from './schemas.js';
 export { KIWI_API_BASE, detectKiwiSignature, buildKiwiChartUrl, parseKiwiResponse, sanitizeKiwiHtml, } from './kiwi.js';
 export type { KiwiSignature, ParsedKiwiChart } from './kiwi.js';
+export { detectEbgwSignature, parseEbgwHtml } from './ebgw.js';
+export type { EbgwSignature, ParsedEbgwChart } from './ebgw.js';
 export { detectUnit, stripUnitSuffix } from './unit-detect.js';
 //# sourceMappingURL=index.d.ts.map

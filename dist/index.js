@@ -14,6 +14,9 @@ export { newSectionId, emptySizeChart, sizeChartContentHash } from './helpers.js
 export { UnitSchema, TableSectionSchema, TextSectionSchema, SizeChartSectionSchema, RuleTypeSchema, ProductMatchRuleSchema, SizeChartFieldsSchema, SizeChartRecordSchema, KiwiResponseSchema, validateSizeChartFields, } from './schemas.js';
 // Kiwi Sizing extraction — detect, fetch URL, parse to sections.
 export { KIWI_API_BASE, detectKiwiSignature, buildKiwiChartUrl, parseKiwiResponse, sanitizeKiwiHtml, } from './kiwi.js';
+// EBGW Size Chart App detection (concurrent stores die onze eigen app gebruiken).
+// Geen API-call nodig — data zit inline in de HTML als JSON-blob.
+export { detectEbgwSignature, parseEbgwHtml } from './ebgw.js';
 // Unit detection helpers.
 export { detectUnit, stripUnitSuffix } from './unit-detect.js';
 //# sourceMappingURL=index.js.map

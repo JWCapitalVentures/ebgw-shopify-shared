@@ -56,5 +56,10 @@ export {
 } from './kiwi.js';
 export type { KiwiSignature, ParsedKiwiChart } from './kiwi.js';
 
+// EBGW Size Chart App detection (concurrent stores die onze eigen app gebruiken).
+// Geen API-call nodig — data zit inline in de HTML als JSON-blob.
+export { detectEbgwSignature, parseEbgwHtml } from './ebgw.js';
+export type { EbgwSignature, ParsedEbgwChart } from './ebgw.js';
+
 // Unit detection helpers.
 export { detectUnit, stripUnitSuffix } from './unit-detect.js';
