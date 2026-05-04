@@ -19,4 +19,7 @@ export { KIWI_API_BASE, detectKiwiSignature, buildKiwiChartUrl, parseKiwiRespons
 export { detectEbgwSignature, parseEbgwHtml } from './ebgw.js';
 // Unit detection helpers.
 export { detectUnit, stripUnitSuffix } from './unit-detect.js';
+// Hub-Integration API (Kanaal 2 from ECOSYSTEM.md §3) — request/response
+// contracts shared between the Hub's typed client and each app's route handlers.
+export { HubDeployRequestSchema, HubDeployResponseSchema, HubDeployStatusSchema, HubStatusResponseSchema, } from './hub-api.js';
 //# sourceMappingURL=index.js.map
