@@ -16,6 +16,6 @@ export type { KiwiSignature, ParsedKiwiChart } from './kiwi.js';
 export { detectEbgwSignature, parseEbgwHtml } from './ebgw.js';
 export type { EbgwSignature, ParsedEbgwChart } from './ebgw.js';
 export { detectUnit, stripUnitSuffix } from './unit-detect.js';
-export { HubDeployRequestSchema, HubDeployResponseSchema, HubDeployStatusSchema, HubStatusResponseSchema, } from './hub-api.js';
-export type { HubDeployRequest, HubDeployResponse, HubDeployStatus, HubStatusResponse, } from './hub-api.js';
+export { HubDeployRequestSchema, HubDeployResponseSchema, HubDeployStatusSchema, HubStatusResponseSchema, HubListRequestSchema, HubListItemSchema, HubListResponseSchema, } from './hub-api.js';
+export type { HubDeployRequest, HubDeployResponse, HubDeployStatus, HubStatusResponse, HubListRequest, HubListItem, HubListResponse, } from './hub-api.js';
 //# sourceMappingURL=index.d.ts.map

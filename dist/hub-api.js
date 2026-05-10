@@ -69,4 +69,54 @@ export const HubStatusResponseSchema = z.object({
         size_chart: z.number().int(),
     }),
 });
+// ─── /api/hub/list ──────────────────────────────────────────────────────────
+// Read-only listing of size_chart metaobjects for one shop. Replaces the
+// Hub's previous direct Shopify GraphQL call (which required broad
+// `read_metaobjects` scope on every Hub-Custom-App). Routing through the
+// Size Chart-app keeps scope-ownership clean per ADR-0002: only the app
+// that writes a domain needs API permission for it.
+//
+// Idempotent, GET-able, no side effects. Response intentionally minimal —
+// just enough metadata for the cross-store overview list. Detail-views
+// continue to deep-link into Shopify-admin.
+export const HubListRequestSchema = z.object({
+    /** Shop to list charts for. e.g. "acme.myshopify.com". */
+    shop_domain: z.string().min(3),
+    /** Caller-supplied trace id; echoed back in the response for log-stitching. */
+    correlation_id: z.string().max(64).optional(),
+});
+export const HubListItemSchema = z.object({
+    /** Shopify metaobject GID — `gid://shopify/Metaobject/...`. */
+    id: z.string(),
+    /** Handle of the metaobject. `auto-<contentHash>` for Hub-deployed charts. */
+    handle: z.string(),
+    /** Mens-leesbare naam uit `displayName` op Shopify-side. */
+    display_name: z.string(),
+    /** ISO-timestamp of last edit on Shopify-side. Null = onbekend. */
+    updated_at: z.string().nullable(),
+    /** Optional preview-name from the chart fields; null when unparseable. */
+    name: z.string().nullable(),
+    /** Default unit ('cm' / 'in') from the chart fields; null when not set. */
+    default_unit: z.enum(['cm', 'in']).nullable(),
+    /** Number of sections in the chart; 0 when unparseable or empty. */
+    section_count: z.number().int().nonnegative(),
+    /** True when the handle starts with `auto-` (= Hub-deployed via content-hash dedup). */
+    is_auto_generated: z.boolean(),
+});
+export const HubListResponseSchema = z.discriminatedUnion('ok', [
+    z.object({
+        ok: z.literal(true),
+        items: z.array(HubListItemSchema),
+        /** Echoed from request.correlation_id when provided. */
+        correlation_id: z.string().optional(),
+    }),
+    z.object({
+        ok: z.literal(false),
+        /** Short-form: 'shop_not_configured' | 'not_installed' | 'http' | 'graphql'. */
+        reason: z.string(),
+        /** Free-form message for logs / UI. */
+        error: z.string().optional(),
+        correlation_id: z.string().optional(),
+    }),
+]);
 //# sourceMappingURL=hub-api.js.map

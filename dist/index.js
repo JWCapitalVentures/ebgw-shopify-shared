@@ -21,5 +21,5 @@ export { detectEbgwSignature, parseEbgwHtml } from './ebgw.js';
 export { detectUnit, stripUnitSuffix } from './unit-detect.js';
 // Hub-Integration API (Kanaal 2 from ECOSYSTEM.md §3) — request/response
 // contracts shared between the Hub's typed client and each app's route handlers.
-export { HubDeployRequestSchema, HubDeployResponseSchema, HubDeployStatusSchema, HubStatusResponseSchema, } from './hub-api.js';
+export { HubDeployRequestSchema, HubDeployResponseSchema, HubDeployStatusSchema, HubStatusResponseSchema, HubListRequestSchema, HubListItemSchema, HubListResponseSchema, } from './hub-api.js';
 //# sourceMappingURL=index.js.map

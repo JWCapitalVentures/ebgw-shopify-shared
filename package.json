@@ -1,6 +1,6 @@
 {
   "name": "@ebgw/shopify-shared",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Shared types, Zod schemas, constants and pure helpers for EBGW Collective's Shopify apps. Single source of truth for the size_chart metaobject schema.",
   "repository": {
     "type": "git",

@@ -71,10 +71,16 @@ export {
   HubDeployResponseSchema,
   HubDeployStatusSchema,
   HubStatusResponseSchema,
+  HubListRequestSchema,
+  HubListItemSchema,
+  HubListResponseSchema,
 } from './hub-api.js';
 export type {
   HubDeployRequest,
   HubDeployResponse,
   HubDeployStatus,
   HubStatusResponse,
+  HubListRequest,
+  HubListItem,
+  HubListResponse,
 } from './hub-api.js';

@@ -90,8 +90,50 @@ export declare const HubStatusResponseSchema: z.ZodObject<{
         size_chart: z.ZodNumber;
     }, z.core.$strip>;
 }, z.core.$strip>;
+export declare const HubListRequestSchema: z.ZodObject<{
+    shop_domain: z.ZodString;
+    correlation_id: z.ZodOptional<z.ZodString>;
+}, z.core.$strip>;
+export declare const HubListItemSchema: z.ZodObject<{
+    id: z.ZodString;
+    handle: z.ZodString;
+    display_name: z.ZodString;
+    updated_at: z.ZodNullable<z.ZodString>;
+    name: z.ZodNullable<z.ZodString>;
+    default_unit: z.ZodNullable<z.ZodEnum<{
+        cm: "cm";
+        in: "in";
+    }>>;
+    section_count: z.ZodNumber;
+    is_auto_generated: z.ZodBoolean;
+}, z.core.$strip>;
+export declare const HubListResponseSchema: z.ZodDiscriminatedUnion<[z.ZodObject<{
+    ok: z.ZodLiteral<true>;
+    items: z.ZodArray<z.ZodObject<{
+        id: z.ZodString;
+        handle: z.ZodString;
+        display_name: z.ZodString;
+        updated_at: z.ZodNullable<z.ZodString>;
+        name: z.ZodNullable<z.ZodString>;
+        default_unit: z.ZodNullable<z.ZodEnum<{
+            cm: "cm";
+            in: "in";
+        }>>;
+        section_count: z.ZodNumber;
+        is_auto_generated: z.ZodBoolean;
+    }, z.core.$strip>>;
+    correlation_id: z.ZodOptional<z.ZodString>;
+}, z.core.$strip>, z.ZodObject<{
+    ok: z.ZodLiteral<false>;
+    reason: z.ZodString;
+    error: z.ZodOptional<z.ZodString>;
+    correlation_id: z.ZodOptional<z.ZodString>;
+}, z.core.$strip>], "ok">;
 export type HubDeployRequest = z.infer<typeof HubDeployRequestSchema>;
 export type HubDeployResponse = z.infer<typeof HubDeployResponseSchema>;
 export type HubDeployStatus = z.infer<typeof HubDeployStatusSchema>;
 export type HubStatusResponse = z.infer<typeof HubStatusResponseSchema>;
+export type HubListRequest = z.infer<typeof HubListRequestSchema>;
+export type HubListItem = z.infer<typeof HubListItemSchema>;
+export type HubListResponse = z.infer<typeof HubListResponseSchema>;
 //# sourceMappingURL=hub-api.d.ts.map
